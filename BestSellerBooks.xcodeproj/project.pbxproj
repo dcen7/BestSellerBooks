@@ -14,6 +14,11 @@
 		64AC76982AFE8CD2004CF08C /* BestSellerBooksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76972AFE8CD2004CF08C /* BestSellerBooksTests.swift */; };
 		64AC76A22AFE8CD2004CF08C /* BestSellerBooksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76A12AFE8CD2004CF08C /* BestSellerBooksUITests.swift */; };
 		64AC76A42AFE8CD2004CF08C /* BestSellerBooksUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76A32AFE8CD2004CF08C /* BestSellerBooksUITestsLaunchTests.swift */; };
+		64AC76B42AFE8D29004CF08C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76B32AFE8D29004CF08C /* APIResponse.swift */; };
+		64AC76B62AFE8D71004CF08C /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76B52AFE8D71004CF08C /* BookService.swift */; };
+		64B96B9D2AFFB8AC00598F49 /* BookStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B96B9C2AFFB8AC00598F49 /* BookStore.swift */; };
+		64B96B9F2AFFBC1200598F49 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B96B9E2AFFBC1200598F49 /* ImageView.swift */; };
+		64C9A6A82AFE9D5D000FE83E /* NYTimes-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 64C9A6A72AFE9D5D000FE83E /* NYTimes-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		64AC769D2AFE8CD2004CF08C /* BestSellerBooksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BestSellerBooksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64AC76A12AFE8CD2004CF08C /* BestSellerBooksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerBooksUITests.swift; sourceTree = "<group>"; };
 		64AC76A32AFE8CD2004CF08C /* BestSellerBooksUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerBooksUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		64AC76B32AFE8D29004CF08C /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		64AC76B52AFE8D71004CF08C /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
+		64B96B9C2AFFB8AC00598F49 /* BookStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookStore.swift; sourceTree = "<group>"; };
+		64B96B9E2AFFBC1200598F49 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		64C9A6A72AFE9D5D000FE83E /* NYTimes-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NYTimes-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +104,12 @@
 		64AC76852AFE8CD0004CF08C /* BestSellerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				64B96BA02AFFBC4A00598F49 /* View */,
+				64AC76B02AFE8CE6004CF08C /* Modal */,
 				64AC76862AFE8CD0004CF08C /* BestSellerBooksApp.swift */,
-				64AC76882AFE8CD0004CF08C /* ContentView.swift */,
 				64AC768A2AFE8CD2004CF08C /* Assets.xcassets */,
 				64AC768C2AFE8CD2004CF08C /* Preview Content */,
+				64C9A6A72AFE9D5D000FE83E /* NYTimes-Info.plist */,
 			);
 			path = BestSellerBooks;
 			sourceTree = "<group>";
@@ -125,6 +137,25 @@
 				64AC76A32AFE8CD2004CF08C /* BestSellerBooksUITestsLaunchTests.swift */,
 			);
 			path = BestSellerBooksUITests;
+			sourceTree = "<group>";
+		};
+		64AC76B02AFE8CE6004CF08C /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				64AC76B32AFE8D29004CF08C /* APIResponse.swift */,
+				64AC76B52AFE8D71004CF08C /* BookService.swift */,
+				64B96B9C2AFFB8AC00598F49 /* BookStore.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
+		64B96BA02AFFBC4A00598F49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64B96B9E2AFFBC1200598F49 /* ImageView.swift */,
+				64AC76882AFE8CD0004CF08C /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C9A6A82AFE9D5D000FE83E /* NYTimes-Info.plist in Resources */,
 				64AC768E2AFE8CD2004CF08C /* Preview Assets.xcassets in Resources */,
 				64AC768B2AFE8CD2004CF08C /* Assets.xcassets in Resources */,
 			);
@@ -257,8 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64B96B9F2AFFBC1200598F49 /* ImageView.swift in Sources */,
+				64AC76B62AFE8D71004CF08C /* BookService.swift in Sources */,
 				64AC76892AFE8CD0004CF08C /* ContentView.swift in Sources */,
 				64AC76872AFE8CD0004CF08C /* BestSellerBooksApp.swift in Sources */,
+				64B96B9D2AFFB8AC00598F49 /* BookStore.swift in Sources */,
+				64AC76B42AFE8D29004CF08C /* APIResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
