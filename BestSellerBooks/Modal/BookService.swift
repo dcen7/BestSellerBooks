@@ -58,7 +58,6 @@ struct BookService {
     
     do {
       apiResponse = try decoder.decode(APIResponse.self, from: data)
-      print(apiResponse?.results.books[0].description)
     } catch {
       throw BookError.responseDecodingFailed
     }

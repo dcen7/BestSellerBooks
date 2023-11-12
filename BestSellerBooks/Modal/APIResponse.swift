@@ -24,6 +24,7 @@ struct Book: Codable, Hashable {
   let title: String
   let rank: Int
   let rankLastWeek: Int
+  var review = ""
   //let buylinks: [BuyLink]
   
   enum CodingKeys: String, CodingKey { 
