@@ -13,6 +13,11 @@ struct ImageView: View {
     AsyncImage(url: URL(string: image)) { image in
       image
         .resizable()
+        .frame(width: 70, height: 100)
+        .aspectRatio(contentMode: .fit)
+        .clipShape(Rectangle())
+        .overlay(Rectangle().stroke(Color.gray, lineWidth: 1.3))
+        .shadow(color: .black, radius: 5)
     } placeholder: {
       ProgressView("Loading")
         .padding()
