@@ -61,16 +61,15 @@ struct ContentView: View {
       }
       .tag(1)
       
-      
-      
-      
-      
-      
-      
-      
-      
       List(fileteredBooks, id: \.self) { book in
         ImageView(image: book.bookImage)
+          .frame(width: 75, height: 75)
+          .aspectRatio(contentMode: .fit)
+          .clipShape(Circle())
+          .overlay(Circle().stroke(Color.blue, lineWidth: 1.3))
+          .shadow(color: .blue, radius: 5)
+        Text("\(book.title) - \(book.author)")
+          .font(.system(size: 16, weight: .light, design: .serif))
       }
         .tabItem {
           Image(systemName: "doc.text.magnifyingglass")

@@ -108,6 +108,7 @@
 		64AC76852AFE8CD0004CF08C /* BestSellerBooks */ = {
 			isa = PBXGroup;
 			children = (
+				64B3F4E22B026B87000C46A5 /* Networking */,
 				64B96BA02AFFBC4A00598F49 /* View */,
 				64AC76B02AFE8CE6004CF08C /* Modal */,
 				64AC76862AFE8CD0004CF08C /* BestSellerBooksApp.swift */,
@@ -147,10 +148,17 @@
 			isa = PBXGroup;
 			children = (
 				64AC76B32AFE8D29004CF08C /* APIResponse.swift */,
-				64AC76B52AFE8D71004CF08C /* BookService.swift */,
 				64B96B9C2AFFB8AC00598F49 /* BookStore.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		64B3F4E22B026B87000C46A5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				64AC76B52AFE8D71004CF08C /* BookService.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		64B96BA02AFFBC4A00598F49 /* View */ = {
