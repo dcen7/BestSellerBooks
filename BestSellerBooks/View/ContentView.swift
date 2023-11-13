@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-  @StateObject var store = BookStore()
+  @StateObject var store: BookStore
   @State private var fetchObjectsTask: Task<Void, Error>?
   @AppStorage("selectedTab") var selectedTab = 1
   
@@ -82,6 +82,6 @@ struct ContentView: View {
 }
 
 #Preview {
-  ContentView()
+  ContentView(store: BookStore())
 }
 
