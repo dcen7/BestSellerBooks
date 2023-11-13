@@ -11,6 +11,10 @@ class BookStore: ObservableObject {
   @Published var books = [Book]()
   let service = BookService()
   
+  var filteredBooks: [Book] {
+      books.filter { $0.isCompleted == true }
+  }
+  
   init() { 
    loadBooksFromDocumentsDirectory()
   }
@@ -46,21 +50,3 @@ class BookStore: ObservableObject {
     }
   }
 }
-
-//    {
-//    didSet {
-//      if let encoded = try? JSONEncoder().encode(books) {
-//        UserDefaults.standard.set(encoded, forKey: "Books")
-//      }
-//    }
-//  }
-//
-//  init() {
-//    if let savedItems = UserDefaults.standard.data(forKey: "Books") {
-//      if let decodedItems = try? JSONDecoder().decode([Book].self, from: savedItems) {
-//        books = decodedItems
-//        return
-//      }
-//    }
-//    books = []
-//  }
