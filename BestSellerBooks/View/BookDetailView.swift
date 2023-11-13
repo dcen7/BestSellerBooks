@@ -11,12 +11,23 @@ struct BookDetailView: View {
   @Binding var book: Book
   @State private var showingAddReview = false
   @State private var review = ""
-
+  
   var body: some View {
-      List {
-        Text("\(book.description)")
-        Text("\(book.review)")
+    VStack {
+      Form {
+        Section(header: Text("Book Description")) {
+          Text("\(book.description)")
+        }
+        
+        Section(header: Text("Book Review")) {
+          Text("\(book.review)")
+        }
+        
+        Section {
+          Toggle("To Read: ", isOn: $book.isCompleted)
+        }
       }
+    }
       .navigationTitle("Book Detail")
       .toolbar {
         Button("Add Expense", systemImage: "plus") {
@@ -30,6 +41,6 @@ struct BookDetailView: View {
 }
 
 
-//#Preview {
-//  BookDetailView(book: Book(author: "Dostoyevski", amazonProductURL: "link", bookImage: "Image", description: "Description", title: "Karamazov Brothers", rank: 1, rankLastWeek: 1))
-//}
+#Preview {
+  BookDetailView(book: .constant(Book(author: "s", amazonProductURL: "s", bookImage: "a", description: "a", title: "s", rank: 2, rankLastWeek: 2)))
+}

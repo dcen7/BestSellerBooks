@@ -12,6 +12,10 @@ struct ContentView: View {
   @State private var fetchObjectsTask: Task<Void, Error>?
   @AppStorage("selectedTab") var selectedTab = 1
   
+  var fileteredBooks: [Book] {
+    store.books.filter { $0.isCompleted == true }
+  }
+  
   var body: some View {
     TabView(selection: $selectedTab) {
       NavigationStack {
@@ -57,11 +61,21 @@ struct ContentView: View {
       }
       .tag(1)
       
-      Text("deniz")
+      
+      
+      
+      
+      
+      
+      
+      
+      List(fileteredBooks, id: \.self) { book in
+        ImageView(image: book.bookImage)
+      }
         .tabItem {
           Image(systemName: "doc.text.magnifyingglass")
             .resizable()
-          Text("Search Book")
+          Text("Book Shelve")
         }
         .tag(2)
     }

@@ -25,6 +25,7 @@ struct Book: Codable, Hashable, Identifiable {
   let rank: Int
   let rankLastWeek: Int
   var review = ""
+  var isCompleted: Bool = false
   //let buylinks: [BuyLink]
   
   enum CodingKeys: String, CodingKey { 
