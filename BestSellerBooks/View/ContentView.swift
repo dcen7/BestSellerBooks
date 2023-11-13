@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-  var store = BookStore()
+  @StateObject var store = BookStore()
   @State private var fetchObjectsTask: Task<Void, Error>?
   @AppStorage("selectedTab") var selectedTab = 1
   
-  
   var body: some View {
     TabView(selection: $selectedTab) {
-     
       NavigationStack {
         List(store.books, id: \.self) { book in
           NavigationLink(value: book) {
@@ -34,7 +32,7 @@ struct ContentView: View {
         }
         .listStyle(.plain)
         .navigationDestination(for: Book.self) { book in
-          BookDetailView(book: book)
+          BookDetailView(book: $store.books.first(where: { $0.id == book.id })!)
         }
         .navigationTitle("NYTimes Best Sellers")
         .toolbar {

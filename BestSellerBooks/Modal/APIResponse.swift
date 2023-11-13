@@ -15,7 +15,7 @@ struct Results: Codable {
   let books: [Book]
 }
 
-struct Book: Codable, Hashable {
+struct Book: Codable, Hashable, Identifiable {
   var id = UUID()
   let author: String
   let amazonProductURL: String

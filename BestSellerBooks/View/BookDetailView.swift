@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct BookDetailView: View {
-  @State var book: Book
+  @Binding var book: Book
   @State private var showingAddReview = false
   @State private var review = ""
 
-  
-  
   var body: some View {
       List {
         Text("\(book.description)")
