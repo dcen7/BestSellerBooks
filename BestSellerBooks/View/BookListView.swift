@@ -19,15 +19,13 @@ struct BookListView: View {
             ImageView(image: book.bookImage)
               .padding(.trailing)
             VStack(alignment: .leading) {
-              Text("\(book.author)")
-                .font(.system(size: 12, weight: .ultraLight, design: .serif))
+              CustomTextView(text: "\(book.author)", size: 12)
                 .padding(.top)
               Spacer()
               Text("\(book.title)")
                 .font(.system(size: 14, weight: .bold, design: .serif))
               Spacer()
-              Text("\(book.description)")
-                .font(.system(size: 12, weight: .ultraLight, design: .serif))
+              CustomTextView(text: "\(book.description)", size: 13)
                 .lineLimit(3)
                 .padding(.bottom)
             }

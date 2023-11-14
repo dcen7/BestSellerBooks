@@ -22,32 +22,42 @@ struct BookDetailView: View {
         ImageView(image: book.bookImage)
           .padding()
        
-    
-        Text("\(book.author)")
-            .padding()
+        CustomTextView(text: book.author, size: 16)
+          .bold()
+          .font(.title)
+          .padding()
         
         Spacer()
-        HStack {
-          Image(systemName: rank == 0 ? "arrow.up.arrow.down.circle" : (rank > 0 ? "arrow.up" : "arrow.down"))
-            .foregroundColor(book.rank - book.rankLastWeek == 0 ? .gray : (book.rank - book.rankLastWeek > 0 ? .green : .red))
-          Text("\(rank)")
-            .padding()
+        VStack {
+          Text("Weekly Rank")
+            .font(.footnote)
+            .fontWeight(.thin)
+            .padding(2)
+          HStack {
+            Image(systemName: rank == 0 ? "arrow.up.arrow.down.circle" : (rank > 0 ? "arrow.up" : "arrow.down"))
+              .foregroundColor(book.rank - book.rankLastWeek == 0 ? .gray : (book.rank - book.rankLastWeek > 0 ? .green : .red))
+            Text("\(abs(rank))")
+              
+          }
+          .bold()
         }
-        .bold()
+        .padding()
       }
       .padding()
       VStack {
         Form {
           Section(header: Text("Book Description")) {
-            Text("\(book.description)")
+            //Text("\(book.description)")
+            CustomTextView(text: book.description, size: 14)
           }
           
           Section(header: Text("Add Shelves")) {
             Toggle("To Read: ", isOn: $book.isCompleted)
+              .tint(.blue)
           }
           
           Section(header: Text("Book Review")) {
-            Text("\(book.review)")
+            CustomTextView(text: book.review, size: 14)
           }
         }
       }
@@ -66,5 +76,5 @@ struct BookDetailView: View {
 
 
 #Preview {
-  BookDetailView(book: .constant(Book(author: "s", amazonProductURL: "s", bookImage: "a", description: "a", title: "s", rank: 2, rankLastWeek: 2)))
+  BookDetailView(book: .constant(Book(author: "s", amazonProductURL: "s", bookImage: "a", description: "a", title: "s", rank: 1, rankLastWeek: 2)))
 }
