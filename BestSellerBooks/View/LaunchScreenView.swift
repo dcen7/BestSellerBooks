@@ -11,6 +11,7 @@ struct LaunchScreenView: View {
   @State private var isActive = false
   @State private var size = 0.6
   @State private var opacity = 0.5
+  @Environment(\.colorScheme) var colorScheme
     
   var body: some View {
     if isActive {
@@ -18,12 +19,11 @@ struct LaunchScreenView: View {
     } else {
         VStack {
           VStack {
-            Image("owl")
+            Image(colorScheme == .dark ? "owldark" : "owllight")
               .font(.system(size: 80))
-              //.foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
             Text("BestRead")
               .font(.system(size: 26))
-              .foregroundColor(.black.opacity(0.80))
+              .foregroundColor(colorScheme == .dark ? .blue.opacity(0.80) : .black.opacity(0.80))
           }
           .scaleEffect(size)
           .opacity(opacity)
