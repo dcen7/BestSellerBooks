@@ -9,10 +9,9 @@ import SwiftUI
 
 @main
 struct BestSellerBooksApp: App {
-    var body: some Scene {
-        WindowGroup {
-            //ContentView(store: BookStore())
-          LaunchScreenView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      LaunchScreenView()
     }
+  }
 }

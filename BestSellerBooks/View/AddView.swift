@@ -10,8 +10,8 @@ import SwiftUI
 struct AddView: View {
   @Binding var book: Book
   @State private var review = ""
+
   @Environment(\.dismiss) var dismiss
-  
     var body: some View {
       Text("Add Review")
         .font(.title)
@@ -32,5 +32,12 @@ struct AddView: View {
 }
 
 #Preview {
-  AddView(book: .constant(Book(author: "a", amazonProductURL: "a", bookImage: "a", description: "as", title: "", rank: 1, rankLastWeek: 4)))
+  AddView(book: .constant(Book(
+    author: "a",
+    amazonProductURL: "a",
+    bookImage: "a",
+    description: "as",
+    title: "",
+    rank: 1,
+    rankLastWeek: 4)))
 }

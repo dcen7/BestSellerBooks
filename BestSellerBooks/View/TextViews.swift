@@ -11,7 +11,7 @@ struct CustomTextView: View {
   let text: String
   let size: CGFloat
     var body: some View {
-        Text(text)
+      Text(text)
         .font(.system(size: size, weight: .ultraLight, design: .serif))
     }
 }

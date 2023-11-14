@@ -10,7 +10,6 @@ import SwiftUI
 struct BookListView: View {
   @ObservedObject var store: BookStore
   @Binding var fetchObjectsTask: Task<Void, Error>?
-  
   var body: some View {
     NavigationStack {
       List(store.books, id: \.self) { book in
@@ -20,6 +19,7 @@ struct BookListView: View {
               .padding(.trailing)
             VStack(alignment: .leading) {
               CustomTextView(text: "\(book.author)", size: 12)
+                .bold()
                 .padding(.top)
               Spacer()
               Text("\(book.title)")
@@ -44,9 +44,9 @@ struct BookListView: View {
             do {
               store.books = []
               try await store.fetchBooks()
-              
+              // TODO:
             } catch {
-              //TODO:
+              // TODO:
             }
           }
         }
@@ -61,7 +61,7 @@ struct BookListView: View {
   }
 }
 //
-//#Preview {
+// #Preview {
 //  let task: Binding<Task<Void, Error>?>
 //  BookListView(store: BookStore(), fetchObjectsTask: task)
-//}
+// }

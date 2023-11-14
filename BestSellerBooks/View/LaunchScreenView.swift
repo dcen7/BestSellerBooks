@@ -44,5 +44,5 @@ struct LaunchScreenView: View {
 }
 
 #Preview {
-    LaunchScreenView()
+  LaunchScreenView()
 }

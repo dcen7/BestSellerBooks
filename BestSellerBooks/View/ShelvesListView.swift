@@ -15,28 +15,28 @@ struct ShelvesListView: View {
       HStack {
         ImageView(image: book.bookImage)
           .padding(.trailing)
-        
         VStack(alignment: .leading, spacing: 5) {
           Text("\(book.author)")
             .font(.system(size: 12, weight: .ultraLight, design: .serif))
-          
           Text("\(book.title)")
             .font(.system(size: 14, weight: .bold, design: .serif))
         }
         Spacer()
-        Link("BUY",destination: URL(string: "\(book.amazonProductURL)")!)
+        Link("BUY", destination: URL(string: "\(book.amazonProductURL)")!)
           .padding()
           .background(
             ZStack {
               Color(Color.blue)
               LinearGradient(
-                gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]),
-                startPoint: .top, endPoint: .bottom)
+                gradient: Gradient(
+                  colors: [Color.white.opacity(0.3), Color.clear]),
+                  startPoint: .top,
+                  endPoint: .bottom)
             }
           )
           .overlay(
-              RoundedRectangle(cornerRadius: 21)
-              .strokeBorder(Color.white, lineWidth: 2)
+            RoundedRectangle(cornerRadius: 21)
+            .strokeBorder(Color.white, lineWidth: 2)
           )
           .foregroundColor(.white)
           .cornerRadius(21)
@@ -46,7 +46,7 @@ struct ShelvesListView: View {
       .padding()
     }
     .navigationTitle("Book Shelves")
-  }
+    }
     .tabItem {
       Image(systemName: "doc.text.magnifyingglass")
         .resizable()
@@ -57,5 +57,14 @@ struct ShelvesListView: View {
 }
 
 #Preview {
-    ShelvesListView(books: [Book(author: "asd", amazonProductURL: "asd", bookImage: "asd", description: "asd", title: "ads", rank: 1, rankLastWeek: 2)])
+  ShelvesListView(books: [
+    Book(
+      author: "asd",
+      amazonProductURL: "asd",
+      bookImage: "asd",
+      description: "asd",
+      title: "ads",
+      rank: 1,
+      rankLastWeek: 2)
+  ])
 }

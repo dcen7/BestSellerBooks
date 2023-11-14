@@ -26,5 +26,5 @@ struct ImageView: View {
 }
 
 #Preview {
-    ImageView(image: "image")
+  ImageView(image: "image")
 }
