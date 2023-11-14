@@ -19,12 +19,12 @@ struct BookDetailView: View {
           Text("\(book.description)")
         }
         
-        Section(header: Text("Book Review")) {
-          Text("\(book.review)")
-        }
-        
         Section {
           Toggle("To Read: ", isOn: $book.isCompleted)
+        }
+        
+        Section(header: Text("Book Review")) {
+          Text("\(book.review)")
         }
       }
     }

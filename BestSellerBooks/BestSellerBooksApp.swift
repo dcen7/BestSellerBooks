@@ -11,7 +11,8 @@ import SwiftUI
 struct BestSellerBooksApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(store: BookStore())
+            //ContentView(store: BookStore())
+          LaunchScreenView()
         }
     }
 }

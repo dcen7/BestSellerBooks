@@ -13,11 +13,21 @@ struct AddView: View {
   @Environment(\.dismiss) var dismiss
   
     var body: some View {
-      TextField("Review", text: $review)
+      Text("Add Review")
+        .font(.title)
+        .padding()
+      List {
+        Section(header: Text("")) {
+          TextField("Review", text: $review)
+        }
+      }
+      .padding()
+      Spacer()
       Button("Save") {
         book.review = review
         dismiss()
       }
+      .padding()
     }
 }
 
