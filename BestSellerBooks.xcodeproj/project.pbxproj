@@ -170,13 +170,13 @@
 		64B96BA02AFFBC4A00598F49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				64B3F4EB2B03AF9F000C46A5 /* LaunchScreenView.swift */,
 				64AC76882AFE8CD0004CF08C /* ContentView.swift */,
 				64B3F4E52B029642000C46A5 /* BookListView.swift */,
 				64B04FE42B000AE200DBB307 /* BookDetailView.swift */,
 				64B04FEA2B00284500DBB307 /* AddView.swift */,
 				64B3F4E72B0299E9000C46A5 /* ShelvesListView.swift */,
 				64B96B9E2AFFBC1200598F49 /* ImageView.swift */,
-				64B3F4EB2B03AF9F000C46A5 /* LaunchScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

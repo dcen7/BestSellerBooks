@@ -23,9 +23,25 @@ struct ShelvesListView: View {
           Text("\(book.title)")
             .font(.system(size: 14, weight: .bold, design: .serif))
         }
-        
-        Link("buy",
-             destination: URL(string: "\(book.amazonProductURL)")!)
+        Spacer()
+        Link("BUY",destination: URL(string: "\(book.amazonProductURL)")!)
+          .padding()
+          .background(
+            ZStack {
+              Color(Color.blue)
+              LinearGradient(
+                gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]),
+                startPoint: .top, endPoint: .bottom)
+            }
+          )
+          .overlay(
+              RoundedRectangle(cornerRadius: 21)
+              .strokeBorder(Color.white, lineWidth: 2)
+          )
+          .foregroundColor(.white)
+          .cornerRadius(21)
+          .bold()
+          .font(.footnote)
       }
       .padding()
     }
