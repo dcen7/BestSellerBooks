@@ -22,6 +22,7 @@ struct ShelvesListView: View {
             .font(.system(size: 14, weight: .bold, design: .serif))
         }
         Spacer()
+        // swiftlint:disable:next force_unwrapping
         Link("BUY", destination: URL(string: "\(book.amazonProductURL)")!)
           .padding()
           .background(

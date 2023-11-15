@@ -34,7 +34,8 @@ struct BookListView: View {
       }
       .listStyle(.plain)
       .navigationDestination(for: Book.self) { book in
-        BookDetailView(book: $store.books.first(where: { $0.id == book.id })!)
+        // swiftlint:disable:next force_unwrapping
+        BookDetailView(book: $store.books.first { $0.id == book.id }!)
       }
       .navigationTitle("NYTimes Best Sellers")
       .toolbar {
