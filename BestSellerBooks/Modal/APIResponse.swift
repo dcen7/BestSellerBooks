@@ -26,11 +26,11 @@ struct Book: Codable, Hashable, Identifiable {
   let rankLastWeek: Int
   var review = ""
   var isCompleted = false
-  enum CodingKeys: String, CodingKey { 
-    case bookImage = "book_image"
-    case amazonProductURL = "amazon_product_url"
-    case description, title, author
-    case rank
-    case rankLastWeek = "rank_last_week"
+enum CodingKeys: String, CodingKey {
+  case bookImage = "book_image"
+  case amazonProductURL = "amazon_product_url"
+  case description, title, author
+  case rank
+  case rankLastWeek = "rank_last_week"
   }
 }
