@@ -14,6 +14,7 @@ struct BookDetailView: View {
   private var rank: Int {
     book.rank - book.rankLastWeek
   }
+
   var body: some View {
     VStack(alignment: .leading) {
       HStack {
@@ -24,6 +25,7 @@ struct BookDetailView: View {
           .font(.title)
           .padding()
         Spacer()
+
         VStack {
           CustomTextView(text: "Weekly Rank", size: 11)
             .font(.footnote)

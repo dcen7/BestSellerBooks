@@ -10,6 +10,8 @@ import SwiftUI
 struct BookListView: View {
   @ObservedObject var store: BookStore
   @Binding var fetchObjectsTask: Task<Void, Error>?
+  @MainActor @State private var showDownloadFailedAlert = false
+
   var body: some View {
     NavigationStack {
       List(store.books, id: \.self) { book in
@@ -38,18 +40,17 @@ struct BookListView: View {
         BookDetailView(book: $store.books.first { $0.id == book.id }!)
       }
       .navigationTitle("NYTimes Best Sellers")
-      .toolbar {
-        Button("Fetch Books") {
-          fetchObjectsTask?.cancel()
-          fetchObjectsTask = Task {
-            do {
-              store.books = []
-              try await store.fetchBooks()
-              // TODO:
-            } catch {
-              // TODO:
-            }
-          }
+      .task {
+        if store.books.isEmpty {
+          downloadBooks()
+        }
+      }
+      .alert("Download Failed", isPresented: $showDownloadFailedAlert) {
+        Button("Try Again") {
+          downloadBooks()
+        }
+        Button("Dismiss") {
+          showDownloadFailedAlert = false
         }
       }
     }
@@ -60,9 +61,17 @@ struct BookListView: View {
     }
     .tag(1)
   }
+
+  private func downloadBooks() {
+    fetchObjectsTask?.cancel()
+    fetchObjectsTask = Task {
+      do {
+        store.books = []
+        try await store.fetchBooks()
+        // TODO:
+      } catch {
+        showDownloadFailedAlert = true
+      }
+    }
+  }
 }
-//
-// #Preview {
-//  let task: Binding<Task<Void, Error>?>
-//  BookListView(store: BookStore(), fetchObjectsTask: task)
-// }

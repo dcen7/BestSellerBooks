@@ -10,12 +10,16 @@ import Foundation
 class BookStore: ObservableObject {
   @Published var books: [Book] = []
   let service = BookService()
+
   var filteredBooks: [Book] {
     books.filter { $0.isCompleted == true }
   }
+
+  var favoriteBooks: [Book] = []
   init() {
     loadBooksFromDocumentsDirectory()
   }
+
   @MainActor
   func fetchBooks() async throws {
     if let books = try await service.getBooks() {
@@ -23,6 +27,7 @@ class BookStore: ObservableObject {
     }
     saveBooksToDocumentsDirectory()
   }
+
   func saveBooksToDocumentsDirectory() {
     let encoder = JSONEncoder()
     do {
@@ -38,6 +43,7 @@ class BookStore: ObservableObject {
       print(error)
     }
   }
+
   func loadBooksFromDocumentsDirectory() {
     let bookListJSONFileManagerURL = URL(
       fileURLWithPath: "books",

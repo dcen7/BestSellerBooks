@@ -11,8 +11,9 @@ struct AddView: View {
   @Binding var book: Book
   @State private var review = ""
 
-@Environment(\.dismiss)
+  @Environment(\.dismiss)
   var dismiss
+
     var body: some View {
       Text("Add Review")
         .font(.title)

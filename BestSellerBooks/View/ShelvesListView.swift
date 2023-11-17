@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ShelvesListView: View {
   let books: [Book]
+
   var body: some View {
     NavigationStack {
     List(books, id: \.self) { book in

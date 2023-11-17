@@ -11,8 +11,9 @@ struct LaunchScreenView: View {
   @State private var isActive = false
   @State private var size = 0.6
   @State private var opacity = 0.5
-@Environment(\.colorScheme)
+  @Environment(\.colorScheme)
   var colorScheme
+
   var body: some View {
     if isActive {
       ContentView(store: BookStore())

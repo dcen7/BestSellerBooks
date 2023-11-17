@@ -10,8 +10,9 @@ import SwiftUI
 struct ContentView: View {
   @StateObject var store: BookStore
   @State private var fetchObjectsTask: Task<Void, Error>?
-@AppStorage("selectedTab")
+  @AppStorage("selectedTab")
   var selectedTab = 1
+
   var body: some View {
     TabView(selection: $selectedTab) {
       BookListView(store: store, fetchObjectsTask: $fetchObjectsTask)

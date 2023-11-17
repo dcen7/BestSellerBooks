@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ImageView: View {
   let image: String
+
   var body: some View {
     AsyncImage(url: URL(string: image)) { image in
       image
