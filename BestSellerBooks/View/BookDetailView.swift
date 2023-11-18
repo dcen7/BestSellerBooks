@@ -11,7 +11,7 @@ struct BookDetailView: View {
   @Binding var book: Book
   @State private var showingAddReview = false
   @State private var review = ""
-  private var rank: Int {
+  var rank: Int {
     book.rank - book.rankLastWeek
   }
 
