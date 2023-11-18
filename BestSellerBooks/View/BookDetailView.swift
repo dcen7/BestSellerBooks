@@ -48,21 +48,23 @@ struct BookDetailView: View {
             CustomTextView(text: book.description, size: 14)
           }
           Section(header: Text("Add Shelves")) {
-            Toggle("To Read: ", isOn: $book.isCompleted)
+            Toggle("\(Image(systemName: "book"))  To Read: ", isOn: $book.isCompleted)
               .tint(.blue)
           }
-          Section(header: Text("Book Review")) {
-            CustomTextView(text: book.review, size: 14)
+          Button {
+            showingAddReview = true
+          } label: {
+            ReviewButtonView()
+          }
+          if !book.review.isEmpty {
+            Section(header: Text("Book Review")) {
+              CustomTextView(text: book.review, size: 14)
+            }
           }
         }
       }
     }
       .navigationTitle("Book Details")
-      .toolbar {
-        Button("Add Expense", systemImage: "plus") {
-          showingAddReview = true
-        }
-      }
       .sheet(isPresented: $showingAddReview) {
         AddView(book: $book)
       }

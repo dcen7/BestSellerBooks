@@ -15,21 +15,60 @@ struct AddView: View {
   var dismiss
 
     var body: some View {
-      Text("Add Review")
-        .font(.title)
-        .padding()
-      List {
-        Section(header: Text("")) {
-          TextField("Review", text: $review)
+      VStack {
+        HStack {
+          Text("Add Review")
+            .foregroundColor(Color.blue)
+            .font(.title2)
+            .padding()
+          Button {
+            dismiss()
+          } label: {
+            HStack {
+              Spacer()
+              Image(systemName: "x.circle")
+                .font(.title2)
+            }
+            .padding()
+          }
+        }
+
+        Form {
+          VStack(spacing: 20) {
+            Section(header: Text("")) {
+              TextField("Review", text: $review, axis: .vertical)
+                .lineLimit(5...)
+              Spacer()
+            }
+          }
         }
       }
       .padding()
-      Spacer()
+
       Button("Save") {
         book.review = review
         dismiss()
       }
       .padding()
+      .background(
+        ZStack {
+          Color(Color.blue)
+          LinearGradient(
+            gradient: Gradient(
+              colors: [Color.white.opacity(0.3), Color.clear]),
+              startPoint: .top,
+              endPoint: .bottom)
+        }
+      )
+      .overlay(
+        RoundedRectangle(cornerRadius: 21)
+        .strokeBorder(Color.white, lineWidth: 2)
+      )
+      .foregroundColor(.white)
+      .cornerRadius(21)
+      .bold()
+      .font(.subheadline)
+      Spacer()
     }
 }
 
