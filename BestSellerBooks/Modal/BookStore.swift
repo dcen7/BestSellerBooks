@@ -11,11 +11,18 @@ class BookStore: ObservableObject {
   @Published var books: [Book] = []
   let service = BookService()
 
+  @Published var wantToReadBooks: [Book] = [] {
+    didSet {
+      print("add/removed item")
+      saveBooksToDocumentsDirectory()
+    }
+  }
+
   var filteredBooks: [Book] {
     books.filter { $0.isCompleted == true }
   }
 
-  var favoriteBooks: [Book] = []
+  //var favoriteBooks: [Book] = []
   init() {
     loadBooksFromDocumentsDirectory()
   }
@@ -25,13 +32,20 @@ class BookStore: ObservableObject {
     if let books = try await service.getBooks() {
       self.books = books
     }
-    saveBooksToDocumentsDirectory()
+    //saveBooksToDocumentsDirectory()
+
+    // set the isCompleted flag for books saved as want to read.
+    books.forEach { book in
+      if let index = wantToReadBooks.firstIndex(where: { $0 == book }) {
+        books[index].isCompleted = true
+      }
+    }
   }
 
   func saveBooksToDocumentsDirectory() {
     let encoder = JSONEncoder()
     do {
-      let booksData = try encoder.encode(books)
+      let booksData = try encoder.encode(wantToReadBooks)
       let apilistJSONFileManagerURL = URL(
         fileURLWithPath: "books",
         relativeTo: FileManager.default.urls(
@@ -53,7 +67,7 @@ class BookStore: ObservableObject {
     let decoder = JSONDecoder()
     do {
       let apiResponseData = try Data(contentsOf: bookListJSONFileManagerURL)
-      books = try decoder.decode([Book].self, from: apiResponseData)
+      wantToReadBooks = try decoder.decode([Book].self, from: apiResponseData)
     } catch let error {
       print(error)
     }

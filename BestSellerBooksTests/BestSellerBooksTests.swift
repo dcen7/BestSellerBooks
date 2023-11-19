@@ -40,7 +40,7 @@ final class BestSellerBooksTests: XCTestCase {
   }
 
   func test_BookDetailView() {
-    let sut = BookDetailView(book: .constant(Book(
+    let sut = BookDetailView(store: BookStore(), book: .constant(Book(
       author: "Auth",
       amazonProductURL: "url",
       bookImage: "image",

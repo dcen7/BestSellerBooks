@@ -16,7 +16,7 @@ struct ContentView: View {
   var body: some View {
     TabView(selection: $selectedTab) {
       BookListView(store: store, fetchObjectsTask: $fetchObjectsTask)
-      ShelvesListView(books: store.filteredBooks)
+      ShelvesListView(books: store.wantToReadBooks)
     }
   }
 }

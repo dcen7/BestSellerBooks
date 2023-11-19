@@ -15,7 +15,7 @@ struct Results: Codable {
   let books: [Book]
 }
 
-struct Book: Codable, Hashable, Identifiable {
+struct Book: Codable, Hashable, Identifiable, Equatable {
   var id = UUID()
   let author: String
   let amazonProductURL: String
@@ -27,11 +27,17 @@ struct Book: Codable, Hashable, Identifiable {
   var review = ""
   var isCompleted = false
 
-enum CodingKeys: String, CodingKey {
-  case bookImage = "book_image"
-  case amazonProductURL = "amazon_product_url"
-  case description, title, author
-  case rank
-  case rankLastWeek = "rank_last_week"
+  enum CodingKeys: String, CodingKey {
+    case bookImage = "book_image"
+    case amazonProductURL = "amazon_product_url"
+    case description, title, author
+    case rank
+    case rankLastWeek = "rank_last_week"
+  }
+
+  static func == (lhs: Book, rhs: Book) -> Bool {
+    return lhs.author == rhs.author &&
+    lhs.title == rhs.title &&
+    lhs.amazonProductURL == rhs.amazonProductURL
   }
 }

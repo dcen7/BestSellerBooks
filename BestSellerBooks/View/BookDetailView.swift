@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BookDetailView: View {
+  @ObservedObject var store: BookStore
   @Binding var book: Book
   @State private var showingAddReview = false
   @State private var review = ""
@@ -50,6 +51,15 @@ struct BookDetailView: View {
           Section(header: Text("Add Shelves")) {
             Toggle("\(Image(systemName: "book"))  To Read: ", isOn: $book.isCompleted)
               .tint(.blue)
+              .onChange(of: book.isCompleted) {
+                if book.isCompleted {
+                  if !store.wantToReadBooks.contains(book) {
+                    store.wantToReadBooks.append(book)
+                  }
+                } else {
+                  store.wantToReadBooks.removeAll { $0 == book }
+                }
+              }
           }
           Button {
             showingAddReview = true
@@ -74,7 +84,7 @@ struct BookDetailView: View {
 
 #Preview {
   BookDetailView(
-    book: .constant(Book(
+    store: BookStore(), book: .constant(Book(
       author: "s",
       amazonProductURL: "s",
       bookImage: "a",
