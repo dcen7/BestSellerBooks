@@ -18,7 +18,7 @@ final class BestSellerBooksUITests: XCTestCase {
   override func tearDownWithError() throws {}
 
   func testLaunchScreenImageExist() throws {
-    let image = app.images["owllight"]
+    let image = app.images["owldark"]
     XCTAssert(image.exists)
   }
 

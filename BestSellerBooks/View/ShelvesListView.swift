@@ -24,26 +24,8 @@ struct ShelvesListView: View {
         }
         Spacer()
         // swiftlint:disable:next force_unwrapping
-        Link("BUY", destination: URL(string: "\(book.amazonProductURL)")!)
-          .padding()
-          .background(
-            ZStack {
-              Color(Color.blue)
-              LinearGradient(
-                gradient: Gradient(
-                  colors: [Color.white.opacity(0.3), Color.clear]),
-                  startPoint: .top,
-                  endPoint: .bottom)
-            }
-          )
-          .overlay(
-            RoundedRectangle(cornerRadius: 21)
-            .strokeBorder(Color.white, lineWidth: 2)
-          )
-          .foregroundColor(.white)
-          .cornerRadius(21)
-          .bold()
-          .font(.footnote)
+        Link("Buy", destination: URL(string: "\(book.amazonProductURL)")!)
+          .modifier(ButtonViewModifier())
       }
       .padding()
     }

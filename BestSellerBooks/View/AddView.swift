@@ -14,62 +14,43 @@ struct AddView: View {
   @Environment(\.dismiss)
   var dismiss
 
-    var body: some View {
-      VStack {
-        HStack {
-          Text("Add Review")
-            .foregroundColor(Color.blue)
-            .font(.title2)
-            .padding()
-          Button {
-            dismiss()
-          } label: {
-            HStack {
-              Spacer()
-              Image(systemName: "x.circle")
-                .font(.title2)
-            }
-            .padding()
-          }
-        }
-
-        Form {
-          VStack(spacing: 20) {
-            Section(header: Text("")) {
-              TextField("Review", text: $review, axis: .vertical)
-                .lineLimit(5...)
-              Spacer()
-            }
-          }
+  var body: some View {
+    VStack {
+      HStack {
+        Text("Add Review")
+          .foregroundColor(Color.blue)
+        Spacer()
+        Button {
+          dismiss()
+        } label: {
+          Image(systemName: "x.circle")
         }
       }
+      .font(.title2)
       .padding()
 
-      Button("Save") {
-        book.review = review
-        dismiss()
-      }
-      .padding()
-      .background(
-        ZStack {
-          Color(Color.blue)
-          LinearGradient(
-            gradient: Gradient(
-              colors: [Color.white.opacity(0.3), Color.clear]),
-              startPoint: .top,
-              endPoint: .bottom)
+      VStack(spacing: 20) {
+        Section(header: Text("")) {
+          TextField("Review", text: $review, axis: .vertical)
+            .lineLimit(5...)
+            .padding()
+            .background(
+              Rectangle()
+                .foregroundColor(.gray.opacity(0.15))
+                .cornerRadius(15)
+            )
+          Spacer()
         }
-      )
-      .overlay(
-        RoundedRectangle(cornerRadius: 21)
-        .strokeBorder(Color.white, lineWidth: 2)
-      )
-      .foregroundColor(.white)
-      .cornerRadius(21)
-      .bold()
-      .font(.subheadline)
-      Spacer()
+      }
     }
+    .padding()
+
+    Button("Save") {
+      book.review = review
+      dismiss()
+    }
+    .modifier(ButtonViewModifier())
+  }
 }
 
 #Preview {
