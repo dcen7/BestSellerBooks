@@ -50,6 +50,7 @@ struct AddView: View {
       dismiss()
     }
     .modifier(ButtonViewModifier())
+    .padding(.bottom)
   }
 }
 

@@ -22,7 +22,6 @@ class BookStore: ObservableObject {
     books.filter { $0.isCompleted == true }
   }
 
-  //var favoriteBooks: [Book] = []
   init() {
     loadBooksFromDocumentsDirectory()
   }
@@ -32,9 +31,7 @@ class BookStore: ObservableObject {
     if let books = try await service.getBooks() {
       self.books = books
     }
-    //saveBooksToDocumentsDirectory()
 
-    // set the isCompleted flag for books saved as want to read.
     books.forEach { book in
       if let index = wantToReadBooks.firstIndex(where: { $0 == book }) {
         books[index].isCompleted = true

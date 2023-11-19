@@ -16,6 +16,7 @@ struct ShelvesListView: View {
       HStack {
         ImageView(image: book.bookImage)
           .padding(.trailing)
+        Spacer()
         VStack(alignment: .leading, spacing: 5) {
           Text("\(book.author)")
             .font(.system(size: 12, weight: .ultraLight, design: .serif))

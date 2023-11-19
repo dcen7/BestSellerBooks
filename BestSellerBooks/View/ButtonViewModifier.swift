@@ -29,6 +29,5 @@ struct ButtonViewModifier: ViewModifier {
       .cornerRadius(21)
       .bold()
       .font(.subheadline)
-      Spacer()
   }
 }
