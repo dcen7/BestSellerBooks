@@ -15,23 +15,31 @@ struct AddReviewView: View {
   var dismiss
 
   var body: some View {
+    HStack {
+      Spacer()
+      Button {
+        dismiss()
+      } label: {
+        Image(systemName: "x.circle")
+      }
+    }
+    .padding()
+    Spacer()
+    Image(systemName: "note.text")
+      .foregroundColor(.blue)
+      .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+      .font(.largeTitle)
     VStack {
       HStack {
         Text("Add Review")
           .foregroundColor(Color.blue)
         Spacer()
-        Button {
-          dismiss()
-        } label: {
-          Image(systemName: "x.circle")
-        }
       }
       .font(.title2)
-      .padding()
 
-      VStack(spacing: 20) {
+      VStack {
         Section(header: Text("")) {
-          TextField("Review", text: $review, axis: .vertical)
+          TextField("Enter a review...", text: $review, axis: .vertical)
             .lineLimit(5...)
             .padding()
             .background(
@@ -39,7 +47,6 @@ struct AddReviewView: View {
                 .foregroundColor(.gray.opacity(0.15))
                 .cornerRadius(15)
             )
-          Spacer()
         }
       }
     }
@@ -51,6 +58,7 @@ struct AddReviewView: View {
     }
     .modifier(ButtonViewModifier())
     .padding(.bottom)
+    Spacer()
   }
 }
 

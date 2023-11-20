@@ -33,7 +33,7 @@ final class BestSellerBooksTests: XCTestCase {
 
   func test_BookStore() async {
     let sut = BookStore()
-    //XCTAssertTrue(sut.books.isEmpty)
+    XCTAssertTrue(sut.books.isEmpty)
     XCTAssertTrue(sut.filteredBooks.isEmpty)
     XCTAssertNoThrow(sut.saveBooksToDocumentsDirectory())
     XCTAssertNoThrow(sut.loadBooksFromDocumentsDirectory())
