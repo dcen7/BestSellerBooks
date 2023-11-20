@@ -21,13 +21,14 @@ struct AddReviewView: View {
         dismiss()
       } label: {
         Image(systemName: "x.circle")
+          .font(.title2)
       }
     }
     .padding()
     Spacer()
     Image(systemName: "note.text")
       .foregroundColor(.blue)
-      .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+      .frame(width: 75, height: 75)
       .font(.largeTitle)
     VStack {
       HStack {
@@ -50,7 +51,7 @@ struct AddReviewView: View {
         }
       }
     }
-    .padding()
+    .padding([.leading, .bottom, .trailing])
 
     Button("Save") {
       book.review = review
