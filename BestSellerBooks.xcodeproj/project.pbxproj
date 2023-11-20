@@ -17,7 +17,7 @@
 		64AC76B42AFE8D29004CF08C /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76B32AFE8D29004CF08C /* APIResponse.swift */; };
 		64AC76B62AFE8D71004CF08C /* BookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76B52AFE8D71004CF08C /* BookService.swift */; };
 		64B04FE52B000AE200DBB307 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B04FE42B000AE200DBB307 /* BookDetailView.swift */; };
-		64B04FEB2B00284500DBB307 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B04FEA2B00284500DBB307 /* AddView.swift */; };
+		64B04FEB2B00284500DBB307 /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B04FEA2B00284500DBB307 /* AddReviewView.swift */; };
 		64B155502B0952FB009715B1 /* ReviewButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B1554F2B0952FB009715B1 /* ReviewButtonView.swift */; };
 		64B155522B095706009715B1 /* ButtonViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B155512B095706009715B1 /* ButtonViewModifier.swift */; };
 		64B3F4E62B029642000C46A5 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B3F4E52B029642000C46A5 /* BookListView.swift */; };
@@ -60,7 +60,7 @@
 		64AC76B32AFE8D29004CF08C /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		64AC76B52AFE8D71004CF08C /* BookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookService.swift; sourceTree = "<group>"; };
 		64B04FE42B000AE200DBB307 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
-		64B04FEA2B00284500DBB307 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		64B04FEA2B00284500DBB307 /* AddReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
 		64B1554F2B0952FB009715B1 /* ReviewButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewButtonView.swift; sourceTree = "<group>"; };
 		64B155512B095706009715B1 /* ButtonViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModifier.swift; sourceTree = "<group>"; };
 		64B3F4E52B029642000C46A5 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
@@ -180,7 +180,7 @@
 				64AC76882AFE8CD0004CF08C /* ContentView.swift */,
 				64B3F4E52B029642000C46A5 /* BookListView.swift */,
 				64B04FE42B000AE200DBB307 /* BookDetailView.swift */,
-				64B04FEA2B00284500DBB307 /* AddView.swift */,
+				64B04FEA2B00284500DBB307 /* AddReviewView.swift */,
 				64B3F4E72B0299E9000C46A5 /* ShelvesListView.swift */,
 				64B96B9E2AFFBC1200598F49 /* ImageView.swift */,
 				64B3F4ED2B03E7E3000C46A5 /* TextViews.swift */,
@@ -347,7 +347,7 @@
 				64AC76B62AFE8D71004CF08C /* BookService.swift in Sources */,
 				64AC76892AFE8CD0004CF08C /* ContentView.swift in Sources */,
 				64AC76872AFE8CD0004CF08C /* BestSellerBooksApp.swift in Sources */,
-				64B04FEB2B00284500DBB307 /* AddView.swift in Sources */,
+				64B04FEB2B00284500DBB307 /* AddReviewView.swift in Sources */,
 				64B3F4EE2B03E7E3000C46A5 /* TextViews.swift in Sources */,
 				64B96B9D2AFFB8AC00598F49 /* BookStore.swift in Sources */,
 				64AC76B42AFE8D29004CF08C /* APIResponse.swift in Sources */,
@@ -520,6 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BestSellerBooks/Preview Content\"";
+				DEVELOPMENT_TEAM = 9UB7ZHBJQ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BestRead;
@@ -528,6 +529,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -549,6 +551,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BestSellerBooks/Preview Content\"";
+				DEVELOPMENT_TEAM = 9UB7ZHBJQ4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = BestRead;
@@ -557,6 +560,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

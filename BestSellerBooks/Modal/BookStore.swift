@@ -26,15 +26,15 @@ class BookStore: ObservableObject {
     loadBooksFromDocumentsDirectory()
   }
 
-  @MainActor
   func fetchBooks() async throws {
-    if let books = try await service.getBooks() {
-      self.books = books
-    }
-
-    books.forEach { book in
-      if let index = wantToReadBooks.firstIndex(where: { $0 == book }) {
-        books[index].isCompleted = true
+    if let booksFetched = try await service.getBooks() {
+      await MainActor.run {
+        books = booksFetched
+        wantToReadBooks.forEach { book in
+          if let index = books.firstIndex(where: { $0 == book }) {
+            books[index].isCompleted = true
+          }
+        }
       }
     }
   }

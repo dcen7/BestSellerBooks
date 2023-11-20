@@ -76,7 +76,7 @@ struct BookDetailView: View {
     }
       .navigationTitle("Book Details")
       .sheet(isPresented: $showingAddReview) {
-        AddView(book: $book)
+        AddReviewView(book: $book)
       }
   }
 }

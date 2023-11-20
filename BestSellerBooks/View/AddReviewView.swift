@@ -1,5 +1,5 @@
 //
-//  AddView.swift
+//  AddReviewView.swift
 //  BestSellerBooks
 //
 //  Created by Deniz Cengiz on 11/11/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct AddReviewView: View {
   @Binding var book: Book
   @State private var review = ""
 
@@ -55,7 +55,7 @@ struct AddView: View {
 }
 
 #Preview {
-  AddView(book: .constant(Book(
+  AddReviewView(book: .constant(Book(
     author: "a",
     amazonProductURL: "a",
     bookImage: "a",
