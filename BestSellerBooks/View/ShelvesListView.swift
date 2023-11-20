@@ -47,6 +47,7 @@ struct ShelvesListView: View {
 #Preview {
   ShelvesListView(books: [
     Book(
+      id: "234",
       author: "asd",
       amazonProductURL: "asd",
       bookImage: "asd",

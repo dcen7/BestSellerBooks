@@ -13,7 +13,6 @@ class BookStore: ObservableObject {
 
   @Published var wantToReadBooks: [Book] = [] {
     didSet {
-      print("add/removed item")
       saveBooksToDocumentsDirectory()
     }
   }
@@ -49,9 +48,8 @@ class BookStore: ObservableObject {
           for: .documentDirectory,
           in: .userDomainMask)[0]).appendingPathExtension("json")
       try booksData.write(to: apilistJSONFileManagerURL, options: .atomicWrite)
-      print("saved")
-    } catch let error {
-      print(error)
+    } catch {
+      print("Data is not saved.")
     }
   }
 
@@ -65,8 +63,8 @@ class BookStore: ObservableObject {
     do {
       let apiResponseData = try Data(contentsOf: bookListJSONFileManagerURL)
       wantToReadBooks = try decoder.decode([Book].self, from: apiResponseData)
-    } catch let error {
-      print(error)
+    } catch {
+      print("First launch of the app and there is no saved data to retrive")
     }
   }
 }

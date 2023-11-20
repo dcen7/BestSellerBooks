@@ -16,7 +16,7 @@ struct Results: Codable {
 }
 
 struct Book: Codable, Hashable, Identifiable, Equatable {
-  var id = UUID()
+  var id: String
   let author: String
   let amazonProductURL: String
   let bookImage: String
@@ -33,6 +33,7 @@ struct Book: Codable, Hashable, Identifiable, Equatable {
     case description, title, author
     case rank
     case rankLastWeek = "rank_last_week"
+    case id = "primary_isbn10"
   }
 
   static func == (lhs: Book, rhs: Book) -> Bool {

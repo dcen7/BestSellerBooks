@@ -14,6 +14,7 @@ struct BookService {
     case urlCreationFailed
     case urlComponentsCreationFailed
   }
+
   private var apiKey: String {
     guard let filePath = Bundle.main.path(forResource: "NYTimes-Info", ofType: "plist") else {
       fatalError("Couldn't find file 'NYTimes-Info.plist'.")
@@ -22,11 +23,14 @@ struct BookService {
     guard let value = plist?.object(forKey: "API_KEY") as? String else {
       fatalError("Couldn't find key 'API_KEY' in 'NYTimes-Info.plist'.")
     }
+
     return value
   }
+
   let baseURLString = "https://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json"
   let session = URLSession.shared
   let decoder = JSONDecoder()
+
   @MainActor
   func getBooks() async throws -> [Book]? {
     let apiResponse: APIResponse?
