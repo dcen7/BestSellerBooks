@@ -37,19 +37,7 @@ struct AddReviewView: View {
         Spacer()
       }
       .font(.title2)
-
-      VStack {
-        Section(header: Text("")) {
-          TextField("Enter a review...", text: $review, axis: .vertical)
-            .lineLimit(5...)
-            .padding()
-            .background(
-              Rectangle()
-                .foregroundColor(.gray.opacity(0.15))
-                .cornerRadius(15)
-            )
-        }
-      }
+      EnterReviewView(review: $review)
     }
     .padding([.leading, .bottom, .trailing])
 

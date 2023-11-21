@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6438D91D2B0D349100076247 /* EnterReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6438D91C2B0D349100076247 /* EnterReviewView.swift */; };
 		64AC76872AFE8CD0004CF08C /* BestSellerBooksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76862AFE8CD0004CF08C /* BestSellerBooksApp.swift */; };
 		64AC76892AFE8CD0004CF08C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AC76882AFE8CD0004CF08C /* ContentView.swift */; };
 		64AC768B2AFE8CD2004CF08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64AC768A2AFE8CD2004CF08C /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6438D91C2B0D349100076247 /* EnterReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterReviewView.swift; sourceTree = "<group>"; };
 		64AC76832AFE8CD0004CF08C /* BestSellerBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BestSellerBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64AC76862AFE8CD0004CF08C /* BestSellerBooksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestSellerBooksApp.swift; sourceTree = "<group>"; };
 		64AC76882AFE8CD0004CF08C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				64B3F4ED2B03E7E3000C46A5 /* TextViews.swift */,
 				64B1554F2B0952FB009715B1 /* ReviewButtonView.swift */,
 				64B155512B095706009715B1 /* ButtonViewModifier.swift */,
+				6438D91C2B0D349100076247 /* EnterReviewView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				64AC76B62AFE8D71004CF08C /* BookService.swift in Sources */,
 				64AC76892AFE8CD0004CF08C /* ContentView.swift in Sources */,
 				64AC76872AFE8CD0004CF08C /* BestSellerBooksApp.swift in Sources */,
+				6438D91D2B0D349100076247 /* EnterReviewView.swift in Sources */,
 				64B04FEB2B00284500DBB307 /* AddReviewView.swift in Sources */,
 				64B3F4EE2B03E7E3000C46A5 /* TextViews.swift in Sources */,
 				64B96B9D2AFFB8AC00598F49 /* BookStore.swift in Sources */,

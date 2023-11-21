@@ -11,6 +11,7 @@ import XCTest
 final class BestSellerBooksTests: XCTestCase {
   func test_BookModalReviewAndCompletion() {
     let sut = Book(
+      id: "123",
       author: "Auth",
       amazonProductURL: "url",
       bookImage: "image",
@@ -41,6 +42,7 @@ final class BestSellerBooksTests: XCTestCase {
 
   func test_BookDetailView() {
     let sut = BookDetailView(store: BookStore(), book: .constant(Book(
+      id: "123",
       author: "Auth",
       amazonProductURL: "url",
       bookImage: "image",
@@ -60,6 +62,7 @@ final class BestSellerBooksTests: XCTestCase {
   func testShelvesListView() {
     let sut = ShelvesListView(books: [
       Book(
+      id: "123",
       author: "Auth",
       amazonProductURL: "url",
       bookImage: "image",
