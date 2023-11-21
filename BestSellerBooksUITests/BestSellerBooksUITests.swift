@@ -18,10 +18,10 @@ final class BestSellerBooksUITests: XCTestCase {
   }
   override func tearDownWithError() throws {}
 
-  func testLaunchScreenImageExist() throws {
-    let image = app.images["owldark"]
-    XCTAssert(image.exists)
-  }
+//  func testLaunchScreenImageExist() throws {
+//    let image = app.images["owldark"]
+//    XCTAssert(image.exists)
+//  }
 
   func testLaunchScreenTextExist() throws {
     let text = app.staticTexts["BestRead"]

@@ -11,12 +11,12 @@ import XCTest
 final class BestSellerBooksTests: XCTestCase {
   func test_BookModalReviewAndCompletion() {
     let sut = Book(
-      id: "123",
-      author: "Auth",
+      id: "1234",
+      author: "author",
       amazonProductURL: "url",
       bookImage: "image",
-      description: "des",
-      title: "asd",
+      description: "description",
+      title: "title",
       rank: 1,
       rankLastWeek: 2)
     let review = sut.review
@@ -42,12 +42,12 @@ final class BestSellerBooksTests: XCTestCase {
 
   func test_BookDetailView() {
     let sut = BookDetailView(store: BookStore(), book: .constant(Book(
-      id: "123",
-      author: "Auth",
+      id: "1234",
+      author: "author",
       amazonProductURL: "url",
       bookImage: "image",
-      description: "des",
-      title: "asd",
+      description: "description",
+      title: "title",
       rank: 1,
       rankLastWeek: 2)))
     let rank = sut.rank
@@ -62,14 +62,14 @@ final class BestSellerBooksTests: XCTestCase {
   func testShelvesListView() {
     let sut = ShelvesListView(books: [
       Book(
-      id: "123",
-      author: "Auth",
-      amazonProductURL: "url",
-      bookImage: "image",
-      description: "des",
-      title: "asd",
-      rank: 1,
-      rankLastWeek: 2)
+        id: "1234",
+        author: "author",
+        amazonProductURL: "url",
+        bookImage: "image",
+        description: "description",
+        title: "title",
+        rank: 1,
+        rankLastWeek: 2)
     ])
     let acv = sut.books.isEmpty
     XCTAssertFalse(acv)
