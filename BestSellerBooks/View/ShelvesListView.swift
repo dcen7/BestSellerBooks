@@ -22,7 +22,7 @@ struct ShelvesListView: View {
       .navigationTitle("Book Shelves")
     }
     .tabItem {
-      Image(systemName: "doc.text.magnifyingglass")
+      Image(systemName: "books.vertical.fill")
         .resizable()
       Text("Book Shelves")
     }
