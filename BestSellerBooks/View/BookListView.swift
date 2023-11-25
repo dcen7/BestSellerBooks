@@ -70,7 +70,7 @@ struct BookListView: View {
       }
     }
     .tabItem {
-      Image(systemName: "book.pages")
+      Image(systemName: "book.fill")
         .resizable()
       Text("Best Sellers")
     }

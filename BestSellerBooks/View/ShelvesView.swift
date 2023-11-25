@@ -11,24 +11,28 @@ struct ShelvesView: View {
   let books: [Book]
   var body: some View {
     ScrollView {
-      VStack {
-        ForEach(books, id: \.self) { book in
-          HStack {
-            ImageView(image: book.bookImage)
-              .padding(.trailing)
-            VStack(alignment: .leading, spacing: 5) {
-              Text("\(book.author)")
-                .font(.system(size: 12, weight: .ultraLight, design: .serif))
-              Text("\(book.title)")
-                .font(.system(size: 14, weight: .bold, design: .serif))
-            }
-            Spacer()
-            // swiftlint:disable:next force_unwrapping
-            Link("Buy", destination: URL(string: "\(book.amazonProductURL)")!)
-              .modifier(ButtonViewModifier())
+      ForEach(books, id: \.self) { book in
+        HStack {
+          ImageView(image: book.bookImage)
+            .padding(.trailing)
+          VStack(alignment: .leading, spacing: 5) {
+            Text("\(book.author)")
+              .font(.system(size: 12, weight: .ultraLight, design: .serif))
+            Text("\(book.title)")
+              .font(.system(size: 14, weight: .bold, design: .serif))
           }
-          .padding()
+          Spacer()
+          // swiftlint:disable:next force_unwrapping
+          Link("Buy", destination: URL(string: "\(book.amazonProductURL)")!)
+            .modifier(ButtonViewModifier())
         }
+        .padding()
+        .clipShape(.rect(cornerRadius: 10))
+        .overlay(
+          RoundedRectangle(cornerRadius: 10)
+            .stroke(.gray.opacity(0.3))
+        )
+        .padding(.horizontal)
       }
     }
   }

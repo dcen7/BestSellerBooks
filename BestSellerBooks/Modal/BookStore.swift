@@ -17,10 +17,6 @@ class BookStore: ObservableObject {
     }
   }
 
-  var filteredBooks: [Book] {
-    books.filter { $0.isCompleted == true }
-  }
-
   init() {
     loadBooksFromDocumentsDirectory()
   }

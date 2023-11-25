@@ -35,4 +35,13 @@ struct Book: Codable, Hashable, Identifiable {
     case rankLastWeek = "rank_last_week"
     case id = "primary_isbn10"
   }
+
+  static func == (lhs: Book, rhs: Book) -> Bool {
+    let result = lhs.id == rhs.id
+    return result
+  }
+
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
 }
