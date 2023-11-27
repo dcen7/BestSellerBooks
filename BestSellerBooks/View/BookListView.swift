@@ -8,12 +8,26 @@
 import SwiftUI
 
 struct BookListView: View {
+  enum ListType: String, CaseIterable, Identifiable {
+    case hardcoverFiction = "hardcover-fiction"
+    case hardcoverNonFiction = "hardcover-nonfiction"
+    case paperBackNonFiction = "paperback-nonfiction"
+    case series = "series-books"
+    case picture = "picture-books"
+    case business = "business-books"
+    case manga = "graphic-books-and-manga"
+    case market = "mass-market-monthly"
+    case audioFiction = "audio-fiction"
+    case audioNonFiction = "audio-nonfiction"
+
+    var id: ListType { self }
+  }
+
   @ObservedObject var store: BookStore
   @Binding var fetchObjectsTask: Task<Void, Error>?
   @MainActor @State private var showDownloadFailedAlert = false
   @State private var showNoConnectionView = false
-  @State private var picker = "hardcover-fiction"
-  let listType = ["hardcover-fiction", "hardcover-nonfiction", "paperback-nonfiction", "series-books"]
+  @State private var picker: ListType = .hardcoverFiction
 
   var body: some View {
     NavigationStack {
@@ -56,24 +70,23 @@ struct BookListView: View {
         }
         .navigationTitle("NYTimes Best Sellers")
         .toolbar {
-          Picker("Picker", selection: $picker) {
-            ForEach(listType, id: \.self) {
-              Text($0)
+          Picker("List Category", selection: $picker) {
+            ForEach(ListType.allCases) { category in
+              Text(category.rawValue)
             }
           }
           .onChange(of: picker) {
-            downloadBooks(value: picker)
+            downloadBooks(listType: picker.rawValue)
           }
         }
-
         .task {
           if store.books.isEmpty {
-            downloadBooks(value: picker)
+            downloadBooks(listType: picker.rawValue)
           }
         }
         .alert("Download Failed", isPresented: $showDownloadFailedAlert) {
           Button("Try Again") {
-            downloadBooks(value: picker)
+            downloadBooks(listType: picker.rawValue)
           }
           Button("Dismiss") {
             showDownloadFailedAlert = false
@@ -90,12 +103,12 @@ struct BookListView: View {
     .tag(1)
   }
 
-  private func downloadBooks(value: String) {
+  private func downloadBooks(listType: String) {
     fetchObjectsTask?.cancel()
     fetchObjectsTask = Task {
       do {
         store.books = []
-        try await store.fetchBooks(value: value)
+        try await store.fetchBooks(value: listType)
         // TODO:
       } catch {
         showDownloadFailedAlert = true

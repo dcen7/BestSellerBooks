@@ -27,7 +27,7 @@ final class BestSellerBooksTests: XCTestCase {
 
   func test_noServerResponse() async throws {
     let sut = BookService()
-    if let books = try await sut.getBooks() {
+    if let books = try await sut.getBooks(listType: "hardcover-fiction") {
       XCTAssertTrue(books.isEmpty == false)
     }
   }

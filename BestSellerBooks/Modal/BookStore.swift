@@ -22,7 +22,7 @@ class BookStore: ObservableObject {
   }
 
   func fetchBooks(value: String) async throws {
-    if let booksFetched = try await service.getBooks(value: value) {
+    if let booksFetched = try await service.getBooks(listType: value) {
       await MainActor.run {
         books = booksFetched
         wantToReadBooks.forEach { book in

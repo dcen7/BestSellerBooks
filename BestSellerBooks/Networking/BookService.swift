@@ -32,9 +32,9 @@ struct BookService {
   let decoder = JSONDecoder()
 
   @MainActor
-  func getBooks(value: String) async throws -> [Book]? {
+  func getBooks(listType: String) async throws -> [Book]? {
     let apiResponse: APIResponse?
-    guard var urlComponents = URLComponents(string: baseURLString + value + ".json") else {
+    guard var urlComponents = URLComponents(string: baseURLString + listType + ".json") else {
       throw BookError.urlComponentsCreationFailed
     }
     let baseParams = ["api-key": apiKey]
