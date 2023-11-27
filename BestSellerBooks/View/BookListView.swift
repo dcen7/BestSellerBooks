@@ -12,6 +12,8 @@ struct BookListView: View {
   @Binding var fetchObjectsTask: Task<Void, Error>?
   @MainActor @State private var showDownloadFailedAlert = false
   @State private var showNoConnectionView = false
+  @State private var picker = "hardcover-fiction"
+  let listType = ["hardcover-fiction", "hardcover-nonfiction", "paperback-nonfiction", "series-books"]
 
   var body: some View {
     NavigationStack {
@@ -53,14 +55,25 @@ struct BookListView: View {
           BookDetailView(store: store, book: $store.books.first { $0.id == book.id }!)
         }
         .navigationTitle("NYTimes Best Sellers")
+        .toolbar {
+          Picker("Picker", selection: $picker) {
+            ForEach(listType, id: \.self) {
+              Text($0)
+            }
+          }
+          .onChange(of: picker) {
+            downloadBooks(value: picker)
+          }
+        }
+
         .task {
           if store.books.isEmpty {
-            downloadBooks()
+            downloadBooks(value: picker)
           }
         }
         .alert("Download Failed", isPresented: $showDownloadFailedAlert) {
           Button("Try Again") {
-            downloadBooks()
+            downloadBooks(value: picker)
           }
           Button("Dismiss") {
             showDownloadFailedAlert = false
@@ -77,12 +90,12 @@ struct BookListView: View {
     .tag(1)
   }
 
-  private func downloadBooks() {
+  private func downloadBooks(value: String) {
     fetchObjectsTask?.cancel()
     fetchObjectsTask = Task {
       do {
         store.books = []
-        try await store.fetchBooks()
+        try await store.fetchBooks(value: value)
         // TODO:
       } catch {
         showDownloadFailedAlert = true

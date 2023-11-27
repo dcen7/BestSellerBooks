@@ -21,8 +21,8 @@ class BookStore: ObservableObject {
     loadBooksFromDocumentsDirectory()
   }
 
-  func fetchBooks() async throws {
-    if let booksFetched = try await service.getBooks() {
+  func fetchBooks(value: String) async throws {
+    if let booksFetched = try await service.getBooks(value: value) {
       await MainActor.run {
         books = booksFetched
         wantToReadBooks.forEach { book in

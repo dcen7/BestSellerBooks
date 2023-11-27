@@ -27,14 +27,14 @@ struct BookService {
     return value
   }
 
-  let baseURLString = "https://api.nytimes.com/svc/books/v3/lists/hardcover-fiction.json"
+  let baseURLString = "https://api.nytimes.com/svc/books/v3/lists/"
   let session = URLSession.shared
   let decoder = JSONDecoder()
 
   @MainActor
-  func getBooks() async throws -> [Book]? {
+  func getBooks(value: String) async throws -> [Book]? {
     let apiResponse: APIResponse?
-    guard var urlComponents = URLComponents(string: baseURLString) else {
+    guard var urlComponents = URLComponents(string: baseURLString + value + ".json") else {
       throw BookError.urlComponentsCreationFailed
     }
     let baseParams = ["api-key": apiKey]
