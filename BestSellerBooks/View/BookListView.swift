@@ -72,7 +72,7 @@ struct BookListView: View {
         .toolbar {
           Picker("List Category", selection: $picker) {
             ForEach(ListType.allCases) { category in
-              Text(category.rawValue)
+              Text(category.rawValue.capitalized.replacingOccurrences(of: "-", with: " "))
             }
           }
           .onChange(of: picker) {
