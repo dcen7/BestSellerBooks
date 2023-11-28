@@ -108,6 +108,7 @@
 		64AC767A2AFE8CD0004CF08C = {
 			isa = PBXGroup;
 			children = (
+				64D35E672B125806000C1839 /* README.md */,
 				64AC76852AFE8CD0004CF08C /* BestSellerBooks */,
 				64AC76962AFE8CD2004CF08C /* BestSellerBooksTests */,
 				64AC76A02AFE8CD2004CF08C /* BestSellerBooksUITests */,
@@ -135,7 +136,6 @@
 				64AC768A2AFE8CD2004CF08C /* Assets.xcassets */,
 				64AC768C2AFE8CD2004CF08C /* Preview Content */,
 				64C9A6A72AFE9D5D000FE83E /* NYTimes-Info.plist */,
-				64D35E672B125806000C1839 /* README.md */,
 			);
 			path = BestSellerBooks;
 			sourceTree = "<group>";
