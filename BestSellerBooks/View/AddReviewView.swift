@@ -15,39 +15,38 @@ struct AddReviewView: View {
   var dismiss
 
   var body: some View {
-    HStack {
-      Spacer()
-      Button {
-        dismiss()
-      } label: {
-        Image(systemName: "x.circle")
-          .font(.title2)
-      }
-    }
-    .padding()
-    Spacer()
-    Image(systemName: "note.text")
-      .foregroundColor(.blue)
-      .frame(width: 75, height: 75)
-      .font(.largeTitle)
-    VStack {
+    NavigationStack {
       HStack {
-        Text("Add Review")
-          .foregroundColor(Color.blue)
         Spacer()
+        Button {
+          dismiss()
+        } label: {
+          Image(systemName: "x.circle")
+            .font(.title2)
+        }
       }
-      .font(.title2)
-      EnterReviewView(review: $review)
+      .padding()
+      Spacer()
+      Image(systemName: "note.text")
+        .foregroundColor(.blue)
+        .frame(width: 75, height: 75)
+        .font(.largeTitle)
+      VStack {
+        HStack {
+          Spacer()
+        }
+        .font(.title2)
+        EnterReviewView(review: $review)
+      }
+      .padding([.leading, .bottom, .trailing])
+      Button("Save") {
+        book.review = review
+        dismiss()
+      }
+      .modifier(ButtonViewModifier())
+      .padding(.bottom)
+      Spacer()
     }
-    .padding([.leading, .bottom, .trailing])
-
-    Button("Save") {
-      book.review = review
-      dismiss()
-    }
-    .modifier(ButtonViewModifier())
-    .padding(.bottom)
-    Spacer()
   }
 }
 
