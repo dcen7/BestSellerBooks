@@ -25,8 +25,7 @@
 
 ## Screenshots
 
-<img src="images/Launch.png" width="230">
-<img src="images/Main.png" width="230">
+<img src="images/Launch.png" width="230"><img src="images/Main.png" width="230">
 <img src="images/Booklist.png" width="230">
 <img src="images/Bookdetail.png" width="230">
 <img src="images/Addreview.png" width="230">
