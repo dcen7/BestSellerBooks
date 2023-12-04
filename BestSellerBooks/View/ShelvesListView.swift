@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct ShelvesListView: View {
-  let books: [Book]
+  @ObservedObject var store: BookStore
 
   var body: some View {
     NavigationStack {
       ZStack {
-        if books.isEmpty {
+        if store.wantToReadBooks.isEmpty {
           EmptyShelveView()
         } else {
-          ShelvesView(books: books)
+          ShelvesView(store: store)
         }
       }
       .navigationTitle("Book Shelves")
@@ -31,15 +31,5 @@ struct ShelvesListView: View {
 }
 
 #Preview {
-  ShelvesListView(books: [
-    Book(
-      id: "1234",
-      author: "author",
-      amazonProductURL: "url",
-      bookImage: "image",
-      description: "description",
-      title: "title",
-      rank: 1,
-      rankLastWeek: 2)
-  ])
+  ShelvesView(store: BookStore())
 }
