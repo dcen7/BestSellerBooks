@@ -27,13 +27,6 @@ struct ShelvesView: View {
           Link("Buy", destination: URL(string: "\(book.amazonProductURL)")!)
             .modifier(ButtonViewModifier())
         }
-        .padding()
-        .clipShape(.rect(cornerRadius: 10))
-        .overlay(
-          RoundedRectangle(cornerRadius: 10)
-            .stroke(.gray.opacity(0.3))
-        )
-        .padding(.horizontal)
       }
       .onDelete { indexSet in
         removeRows(at: indexSet)

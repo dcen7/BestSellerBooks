@@ -20,6 +20,7 @@ struct ShelvesListView: View {
         }
       }
       .navigationTitle("Book Shelves")
+      .navigationBarTitleDisplayMode(.inline)
     }
     .tabItem {
       Image(systemName: "books.vertical.fill")
