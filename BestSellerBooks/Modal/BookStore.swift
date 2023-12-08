@@ -12,8 +12,17 @@ class BookStore: ObservableObject {
   let service = BookService()
 
   @Published var wantToReadBooks: [Book] = [] {
-    didSet {
+    didSet(oldValue) {
       saveBooksToDocumentsDirectory()
+
+      if wantToReadBooks.count < oldValue.count {
+        let difference = oldValue.difference(from: wantToReadBooks)
+        if let item = difference.first {
+          if let index = books.firstIndex(where: { $0 == item }) {
+            books[index].isCompleted = false
+          }
+        }
+      }
     }
   }
 
@@ -62,5 +71,14 @@ class BookStore: ObservableObject {
     } catch {
       print("First launch of the app and there is no saved data to retrive")
     }
+  }
+}
+
+
+extension Array where Element: Hashable {
+  func difference(from other: [Element]) -> [Element] {
+    let thisSet = Set(self)
+    let otherSet = Set(other)
+    return Array(thisSet.symmetricDifference(otherSet))
   }
 }

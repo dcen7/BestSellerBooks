@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct ShelvesView: View {
-  let books: [Book]
+  @ObservedObject var store: BookStore
+
   var body: some View {
-    ScrollView {
-      ForEach(books, id: \.self) { book in
+    List {
+      ForEach(store.wantToReadBooks, id: \.self) { book in
         HStack {
           ImageView(image: book.bookImage)
             .padding(.trailing)
@@ -26,29 +27,18 @@ struct ShelvesView: View {
           Link("Buy", destination: URL(string: "\(book.amazonProductURL)")!)
             .modifier(ButtonViewModifier())
         }
-        .padding()
-        .clipShape(.rect(cornerRadius: 10))
-        .overlay(
-          RoundedRectangle(cornerRadius: 10)
-            .stroke(.gray.opacity(0.3))
-        )
-        .padding(.horizontal)
+      }
+      .onDelete { indexSet in
+        removeRows(at: indexSet)
       }
     }
   }
+
+  func removeRows(at offsets: IndexSet) {
+    store.wantToReadBooks.remove(atOffsets: offsets)
+  }
 }
 
-
 #Preview {
-  ShelvesView(books: [
-    Book(
-      id: "1234",
-      author: "author",
-      amazonProductURL: "url",
-      bookImage: "image",
-      description: "description",
-      title: "title",
-      rank: 1,
-      rankLastWeek: 2)
-  ])
+  ShelvesView(store: BookStore())
 }

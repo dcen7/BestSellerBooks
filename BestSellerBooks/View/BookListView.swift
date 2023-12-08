@@ -69,6 +69,7 @@ struct BookListView: View {
           BookDetailView(store: store, book: $store.books.first { $0.id == book.id }!)
         }
         .navigationTitle("NYTimes Best Sellers")
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
           Picker("List Category", selection: $picker) {
             ForEach(ListType.allCases) { category in
