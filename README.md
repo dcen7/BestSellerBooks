@@ -31,3 +31,4 @@
 <img src="images/Addreview.png" width="230">
 <img src="images/Bookshelves.png" width="230">
 <img src="images/Buylink.png" width="230">
+<img src="images/Delete.png" width="230">
