@@ -26,6 +26,7 @@ struct Book: Codable, Hashable, Identifiable {
   let rankLastWeek: Int
   var review = ""
   var isCompleted = false
+  let buyLinks: [BuyLink]
 
   enum CodingKeys: String, CodingKey {
     case bookImage = "book_image"
@@ -34,6 +35,12 @@ struct Book: Codable, Hashable, Identifiable {
     case rank
     case rankLastWeek = "rank_last_week"
     case id = "primary_isbn10"
+    case buyLinks = "buy_links"
+  }
+
+  struct BuyLink: Codable {
+    let name: String
+    let url: String
   }
 
   static func == (lhs: Book, rhs: Book) -> Bool {

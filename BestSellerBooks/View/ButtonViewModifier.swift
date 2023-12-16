@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonViewModifier: ViewModifier {
   func body(content: Content) -> some View {
     content
-      .padding()
+      .padding(12)
       .background(
         ZStack {
           Color(Color.blue)
@@ -28,6 +28,5 @@ struct ButtonViewModifier: ViewModifier {
       .foregroundColor(.white)
       .cornerRadius(21)
       .bold()
-      .font(.subheadline)
   }
 }

@@ -92,5 +92,6 @@ struct BookDetailView: View {
       description: "description",
       title: "title",
       rank: 1,
-      rankLastWeek: 2)))
+      rankLastWeek: 2,
+      buyLinks: [Book.BuyLink(name: "bookName", url: "link")])))
 }

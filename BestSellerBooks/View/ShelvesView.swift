@@ -21,11 +21,19 @@ struct ShelvesView: View {
               .font(.system(size: 12, weight: .ultraLight, design: .serif))
             Text("\(book.title)")
               .font(.system(size: 14, weight: .bold, design: .serif))
+            ScrollView(.horizontal, showsIndicators: false) {
+              HStack {
+                ForEach(book.buyLinks, id: \.url) { link in
+                  // swiftlint:disable:next force_unwrapping
+                  Link("\(link.name)", destination: URL(string: "\(link.url)")!)
+                    .modifier(ButtonViewModifier())
+                    .font(.footnote)
+                    .padding(.top)
+                }
+              }
+            }
           }
           Spacer()
-          // swiftlint:disable:next force_unwrapping
-          Link("Buy", destination: URL(string: "\(book.amazonProductURL)")!)
-            .modifier(ButtonViewModifier())
         }
       }
       .onDelete { indexSet in

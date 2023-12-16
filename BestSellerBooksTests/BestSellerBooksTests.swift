@@ -18,7 +18,8 @@ final class BestSellerBooksTests: XCTestCase {
       description: "description",
       title: "title",
       rank: 1,
-      rankLastWeek: 2)
+      rankLastWeek: 2,
+      buyLinks: [Book.BuyLink(name: "bookName", url: "link")])
     let review = sut.review
     let completed = sut.isCompleted
     XCTAssertEqual(review, "")
@@ -48,7 +49,8 @@ final class BestSellerBooksTests: XCTestCase {
       description: "description",
       title: "title",
       rank: 1,
-      rankLastWeek: 2)))
+      rankLastWeek: 2,
+      buyLinks: [Book.BuyLink(name: "bookName", url: "link")])))
     let rank = sut.rank
     XCTAssertNotNil(rank)
   }
@@ -59,18 +61,8 @@ final class BestSellerBooksTests: XCTestCase {
   }
 
   func testShelvesListView() {
-    let sut = ShelvesListView(books: [
-      Book(
-        id: "1234",
-        author: "author",
-        amazonProductURL: "url",
-        bookImage: "image",
-        description: "description",
-        title: "title",
-        rank: 1,
-        rankLastWeek: 2)
-    ])
-    let acv = sut.books.isEmpty
+    let sut = ShelvesView(store: BookStore())
+    let acv = sut.store.wantToReadBooks.isEmpty
     XCTAssertFalse(acv)
   }
 }

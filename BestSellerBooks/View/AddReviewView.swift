@@ -44,7 +44,8 @@ struct AddReviewView: View {
         dismiss()
       }
       .modifier(ButtonViewModifier())
-      .padding(.bottom)
+      .font(.subheadline)
+      .padding()
       Spacer()
     }
   }
@@ -59,5 +60,6 @@ struct AddReviewView: View {
     description: "description",
     title: "title",
     rank: 1,
-    rankLastWeek: 2)))
+    rankLastWeek: 2,
+    buyLinks: [Book.BuyLink(name: "bookName", url: "link")])))
 }
