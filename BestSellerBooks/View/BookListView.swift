@@ -78,6 +78,7 @@ struct BookListView: View {
           }
           .onChange(of: picker) {
             downloadBooks(listType: picker.rawValue)
+            showNoConnectionView = false
           }
         }
         .task {
@@ -110,7 +111,6 @@ struct BookListView: View {
       do {
         store.books = []
         try await store.fetchBooks(value: listType)
-        // TODO:
       } catch {
         showDownloadFailedAlert = true
       }

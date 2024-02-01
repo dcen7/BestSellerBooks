@@ -85,7 +85,6 @@ struct BookDetailView: View {
 #Preview {
   BookDetailView(
     store: BookStore(), book: .constant(Book(
-      id: "1234",
       author: "author",
       amazonProductURL: "url",
       bookImage: "image",

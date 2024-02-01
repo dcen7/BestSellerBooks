@@ -24,7 +24,6 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
-NYTimes-Info.plist
 
 ## Obj-C/Swift specific
 *.hmap

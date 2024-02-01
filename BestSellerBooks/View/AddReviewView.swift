@@ -53,7 +53,6 @@ struct AddReviewView: View {
 
 #Preview {
   AddReviewView(book: .constant(Book(
-    id: "1234",
     author: "author",
     amazonProductURL: "url",
     bookImage: "image",
