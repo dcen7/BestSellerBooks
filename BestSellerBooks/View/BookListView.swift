@@ -74,17 +74,21 @@ struct BookListView: View {
           // swiftlint:disable:next force_unwrapping
           BookDetailView(store: store, book: $store.books.first { $0.id == book.id }!)
         }
-        .navigationTitle("Best Sellers")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-          Picker("List Category", selection: $picker) {
-            ForEach(ListType.allCases) { category in
-              Text(category.rawValue.capitalized.replacingOccurrences(of: "-", with: " "))
-            }
+          ToolbarItem(placement: .navigationBarLeading) {
+            Text("Best Sellers")
           }
-          .onChange(of: picker) {
-            downloadBooks(listType: picker.rawValue)
-            showNoConnectionView = false
+          ToolbarItem(placement: .navigationBarTrailing) {
+            Picker("List Category", selection: $picker) {
+              ForEach(ListType.allCases) { category in
+                Text(category.rawValue.capitalized.replacingOccurrences(of: "-", with: " "))
+              }
+            }
+            .onChange(of: picker) {
+              downloadBooks(listType: picker.rawValue)
+              showNoConnectionView = false
+            }
           }
         }
         .task {
