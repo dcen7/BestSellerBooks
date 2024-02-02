@@ -28,6 +28,7 @@ struct BookListView: View {
   @MainActor @State private var showDownloadFailedAlert = false
   @State private var showNoConnectionView = false
   @State private var picker: ListType = .hardcoverFiction
+  @State var isLoading = true
 
   var body: some View {
     NavigationStack {
@@ -63,12 +64,17 @@ struct BookListView: View {
             }
           }
         }
+        .overlay {
+          if isLoading {
+            ProgressView("Loading...")
+          }
+        }
         .listStyle(.plain)
         .navigationDestination(for: Book.self) { book in
           // swiftlint:disable:next force_unwrapping
           BookDetailView(store: store, book: $store.books.first { $0.id == book.id }!)
         }
-        .navigationTitle("NYTimes Best Sellers")
+        .navigationTitle("Best Sellers")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
           Picker("List Category", selection: $picker) {
@@ -111,9 +117,15 @@ struct BookListView: View {
       do {
         store.books = []
         try await store.fetchBooks(value: listType)
+        await stopLoading()
       } catch {
         showDownloadFailedAlert = true
       }
     }
+  }
+
+  @MainActor
+  func stopLoading() async {
+    isLoading = false
   }
 }
