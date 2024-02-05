@@ -44,37 +44,46 @@ struct BookListView: View {
           .cornerRadius(21)
           .shadow(radius: 10, x: 5, y: 5)
         }
-        List(store.books, id: \.self) { book in
-          NavigationLink(value: book) {
-            HStack {
-              ImageView(image: book.bookImage)
-                .padding(.trailing)
-              VStack(alignment: .leading) {
-                CustomTextView(text: "\(book.author)", size: 12)
-                  .bold()
-                  .padding(.top)
-                Spacer()
-                Text("\(book.title)")
-                  .font(.system(size: 14, weight: .bold, design: .serif))
-                Spacer()
-                CustomTextView(text: "\(book.description)", size: 13)
-                  .lineLimit(3)
-                  .padding(.bottom)
+        ZStack {
+          List(store.books, id: \.self) { book in
+            NavigationLink(value: book) {
+              HStack {
+                ImageView(image: book.bookImage)
+                  .padding(.trailing)
+                VStack(alignment: .leading) {
+                  CustomTextView(text: "\(book.author)", size: 12)
+                    .bold()
+                    .padding(.top)
+                  Spacer()
+                  Text("\(book.title)")
+                    .font(.system(size: 14, weight: .bold, design: .serif))
+                  Spacer()
+                  CustomTextView(text: "\(book.description)", size: 13)
+                    .lineLimit(3)
+                    .padding(.bottom)
+                }
               }
             }
           }
-        }
-        .overlay {
-          if isLoading {
-            ProgressView("Loading...")
+          .overlay {
+            if isLoading {
+              ProgressView("Loading...")
+            }
+          }
+          .listStyle(.plain)
+          .navigationDestination(for: Book.self) { book in
+            // swiftlint:disable:next force_unwrapping
+            BookDetailView(store: store, book: $store.books.first { $0.id == book.id }!)
+          }
+          .navigationBarTitleDisplayMode(.inline)
+          VStack {
+            Spacer()
+            HStack {
+              Image("powered")
+              Spacer()
+            }
           }
         }
-        .listStyle(.plain)
-        .navigationDestination(for: Book.self) { book in
-          // swiftlint:disable:next force_unwrapping
-          BookDetailView(store: store, book: $store.books.first { $0.id == book.id }!)
-        }
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
           ToolbarItem(placement: .navigationBarLeading) {
             Text("Best Sellers")
