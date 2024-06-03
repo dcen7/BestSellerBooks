@@ -46,7 +46,7 @@ struct BookDetailView: View {
       VStack {
         Form {
           Section(header: Text("Book Description")) {
-            CustomTextView(text: book.description, size: 14)
+            CustomTextView(text: book.NADecription, size: 14)
           }
           Section(header: Text("Add Shelves")) {
             Toggle("\(Image(systemName: "book"))  To Read: ", isOn: $book.isCompleted)

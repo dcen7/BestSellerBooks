@@ -58,7 +58,7 @@ struct BookListView: View {
                   Text("\(book.title)")
                     .font(.system(size: 14, weight: .bold, design: .serif))
                   Spacer()
-                  CustomTextView(text: "\(book.description)", size: 13)
+                  CustomTextView(text: "\(book.NADecription)", size: 13)
                     .lineLimit(3)
                     .padding(.bottom)
                 }

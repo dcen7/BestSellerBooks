@@ -28,6 +28,13 @@ struct Book: Codable, Hashable, Identifiable {
   var isCompleted = false
   let buyLinks: [BuyLink]
 
+  var NADecription: String {
+    if description.isEmpty {
+      return "Not Available"
+    }
+    return description
+  }
+
   enum CodingKeys: String, CodingKey {
     case bookImage = "book_image"
     case amazonProductURL = "amazon_product_url"
